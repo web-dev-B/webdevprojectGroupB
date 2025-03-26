@@ -3,22 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My App</title>
+  <title>FoodHub - Your Nutrition Companion</title>
   <link rel="stylesheet" href="/frontend/public/css/style.css">
 </head>
 <body>
-  <div class="container">
-    <nav>
-      <a href="/">Home</a>
-      <a href="/frontend/views/auth/login.html">Login</a>
-      <a href="/frontend/views/auth/signup.html">Signup</a>
-    </nav>
-    
-    <main>
-      <!-- -->
-    </main>
-  </div>
-  
-  <script src="/frontend/public/js/home.js"></script>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">FoodHub</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/frontend/views/auth/login.html">Login</a></li>
+        <li><a href="/frontend/views/auth/signup.html">Signup</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Your All-in-One Health Companion</h1>
+      <p>Track receipts, manage your diet, and plan workouts all in one place</p>
+      <a href="/frontend/views/auth/signup.html" class="btn primary">Get Started</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="feature">
+        <h3>Receipt Tracking</h3>
+        <p>Easily upload and organize your receipts for better financial management</p>
+      </div>
+      <div class="feature">
+        <h3>Nutrition Tracking</h3>
+        <p>Log your meals and track your nutritional intake for healthier eating habits</p>
+      </div>
+      <div class="feature">
+        <h3>Workout Planning</h3>
+        <p>Create and follow workout routines to achieve your fitness goals</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 FoodHub. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
