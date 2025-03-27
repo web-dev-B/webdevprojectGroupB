@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Login - GroupB food web</title>
+  <link rel="stylesheet" href="/frontend/public/css/style.css">
 </head>
 <body>
-  <div class="container">
-    <nav>
-      <a href="/">Home</a>
-      <a href="/frontend/views/auth/login.html">Login</a>
-      <a href="/frontend/views/auth/signup.html">Signup</a>
-    </nav>
-    
-    <main>
-      <h1>Login</h1>
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        
-        <button type="submit" class="btn">Login</button>
-      </form>
-    </main>
-  </div>
-  
-  <script src="/js/auth.js"></script>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">GroupB food web</div>
+      <ul class="nav-links">
+        <li><a href="/frontend/views/home/index.html">Home</a></li>
+        <li><a href="/frontend/views/auth/login.html">Login</a></li>
+        <li><a href="/frontend/views/auth/signup.html">Signup</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="auth-container">
+    <div class="container">
+      <div class="auth-card">
+        <h2>Login to share recipes!</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          
+          <button type="submit" class="btn primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/frontend/views/auth/signup.html">Signup here</a></p>
+      </div>
+    </div>
+  </section>
+
+  <script src="/frontend/public/js/auth.js"></script>
 </body>
 </html>

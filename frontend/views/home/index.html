@@ -3,50 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FoodHub - Your Nutrition Companion</title>
-  <link rel="stylesheet" href="/frontend/public/css/style.css">
+  <title>groupB webproject</title>
+  <link rel="stylesheet" href="/frontend/public/css/indexstyle.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="logo">FoodHub</div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/frontend/views/auth/login.html">Login</a></li>
-        <li><a href="/frontend/views/auth/signup.html">Signup</a></li>
-      </ul>
+  <header>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Meals</a>
+      <a href="#">Diet</a>
     </div>
-  </nav>
+    <div class="auth-links">
+      <a href="../auth/login.html" class="auth-button">Log in</a>
+      <a href="../auth/signup.html" class="auth-button">Sign in</a>
+    </div>
+  </header>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Your All-in-One Health Companion</h1>
-      <p>Track receipts, manage your diet, and plan workouts all in one place</p>
-      <a href="/frontend/views/auth/signup.html" class="btn primary">Get Started</a>
-    </div>
-  </section>
+  <main>
+    <section class="section most-search">
+      <h2>MOST SEARCH</h2>
+      <div class="search-categories">
+        <div class="category">these will become category filters</div>
+      </div>
+      
+      <div class="search-container">
+        <div class="search-bar">
+          <input type="text" placeholder="Tasty recipes...">
+          <button>Search</button>
+        </div>
+      </div>
+    </section>
 
-  <section class="features">
-    <div class="container">
-      <div class="feature">
-        <h3>Receipt Tracking</h3>
-        <p>Easily upload and organize your receipts for better financial management</p>
+    <section class="section recipe-of-day-section">
+      <h2>RECIPE OF THE DAY</h2>
+      <div class="recipe-of-day-placeholder">
+        Recipe of the Day will be added here
       </div>
-      <div class="feature">
-        <h3>Nutrition Tracking</h3>
-        <p>Log your meals and track your nutritional intake for healthier eating habits</p>
-      </div>
-      <div class="feature">
-        <h3>Workout Planning</h3>
-        <p>Create and follow workout routines to achieve your fitness goals</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2023 FoodHub. All rights reserved.</p>
-    </div>
-  </footer>
+    <section class="section explore-more">
+      <h2>EXPLORE MORE</h2>
+      <div class="recipe-grid">
+        <!-- recipe placeholders -->
+        <div class="recipe-card-placeholder">
+          <div class="recipe-card-placeholder-category">Dessert</div>
+          <div class="recipe-card-placeholder-content">
+            <h3>Recipe 1 will be added here</h3>
+          </div>
+        </div>
+      
+        <div class="recipe-card-placeholder">
+          <div class="recipe-card-placeholder-category">Appetizer</div>
+          <div class="recipe-card-placeholder-content">
+            <h3>Recipe 2 will be added here</h3>
+          </div>
+        </div>
+        
+        <div class="recipe-card-placeholder">
+          <div class="recipe-card-placeholder-category">Sauce</div>
+          <div class="recipe-card-placeholder-content">
+            <h3>Recipe 3 will be added here</h3>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  </main>
 </body>
 </html>
