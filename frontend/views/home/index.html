@@ -4,24 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>groupB webproject</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
   <link rel="stylesheet" href="/frontend/public/css/indexstyle.css">
 </head>
 <body>
   <header>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Meals</a>
-      <a href="#">Diet</a>
+    <div class="dropdown-nav-links">
+      <i class="bi bi-list"></i>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Meals</a>
+        <a href="#">Diet</a>
+      </div>
     </div>
-    <div class="auth-links">
-      <a href="../auth/login.html" class="auth-button">Log in</a>
-      <a href="../auth/signup.html" class="auth-button">Sign in</a>
+
+    <div class="dropdown-auth-links">
+      <i class="bi bi-person-fill"></i>
+      <div class="auth-links">
+        <a href="../auth/login.html" class="login-button">Log in</a>
+        <a href="../auth/signup.html" class="signin-button">Sign in</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="section most-search">
-      <h2>MOST SEARCH</h2>
+    <section class="section most-popular">
+      <h2>MOST POPULAR</h2>
       <div class="search-categories">
         <div class="category">these will become category filters</div>
       </div>
@@ -69,5 +78,8 @@
       </div>
     </section>
   </main>
+
+  <script src="/frontend/public/js/home.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
