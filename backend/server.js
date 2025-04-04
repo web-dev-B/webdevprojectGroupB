@@ -1,52 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
-const path = require('path');
-const authRoutes = require('./src/routes/authRoutes');
-const homeRoutes = require('./src/routes/homeRoutes')
-const pool = require('./src/config/db');
+const { connectDB } = require('./config/db');
+require('dotenv').config();
 
-dotenv.config();
 const app = express();
-const port = process.env.PORT || 3000;
 
-app.use(cors());
+connectDB();
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-//link to frontend part
-app.use(express.static(path.join(__dirname, 'frontend/public')));
+app.use('/api/auth', require('./src/routes/authRoutes'));
 
-//app routes
-app.use('/api/auth', authRoutes);
-app.use('/api/home', homeRoutes);
+const PORT = process.env.PORT || 5000;
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/public'));
-});
-
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-  });
-
-
-  // const express = require('express');
-  // const cors = require('cors');
-  // const connectDB = require('./config/db');
-  // require('dotenv').config();
-  
-  // const app = express();
-  
-  // // Connect Database
-  // connectDB();
-  
-  // // Middleware
-  // app.use(express.json());
-  // app.use(cors());
-  
-  // // Routes
-  // app.use('/api/auth', require('./routes/auth'));
-  
-  // const PORT = process.env.PORT || 5000;
-  
-  // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));  
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
