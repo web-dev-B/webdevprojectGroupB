@@ -1,0 +1,22 @@
+body {
+    background-color: #f5f0e6;
+    font-family: 'Inknut Antiqua', serif;
+}
+.container {
+    margin-top: 30px;
+}
+.section-title {
+    margin-bottom: 20px;
+}
+.form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.btn-custom {
+    background-color: #d1bfa7;
+    color: #fff;
+    border: none;
+}
+.btn-custom:hover {
+    background-color: #bfa58e;
+}
