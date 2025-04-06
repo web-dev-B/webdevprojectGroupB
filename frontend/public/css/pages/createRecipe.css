@@ -3,10 +3,10 @@ body {
     font-family: 'Inknut Antiqua', serif;
 }
 .container {
-    margin-top: 30px;
+    margin-top: 4rem;
 }
 .section-title {
-    margin-bottom: 20px;
+    margin-bottom: 3rem;
 }
 .form-control {
     background-color: #fff;
