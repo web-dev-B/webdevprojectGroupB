@@ -1,5 +1,6 @@
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
+const logoutButton = document.querySelector('.logout-button');
 
 if (loginForm) {
   loginForm.addEventListener('submit', async (e) => {
@@ -8,7 +9,7 @@ if (loginForm) {
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch('http://localhost:3001/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,18 +35,17 @@ if (loginForm) {
 if (signupForm) {
   signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('name').value;
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signup', {
+      const response = await fetch('http://localhost:3001/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, username, email, password }),
+        body: JSON.stringify({ username, email, password }),
       });
 
       const data = await response.json();
@@ -60,5 +60,13 @@ if (signupForm) {
       console.error(err);
       alert('Server error');
     }
-  });
-}
+  })
+};
+
+
+if (logoutButton) {
+  logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    window.location.href = '/frontend/views/home/index.html';
+  })
+};
