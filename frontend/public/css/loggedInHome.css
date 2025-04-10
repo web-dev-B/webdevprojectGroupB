@@ -12,7 +12,7 @@
   }
 
   .bi {
-    display: none;
+    margin: 0 1.5rem;
   }
 
   .auth-links {
@@ -196,48 +196,6 @@
       grid-template-columns: 1fr;
     }
 
-    header {
-      padding: 2rem 5% 1rem;
-    }
-
-    .bi {
-      display: inline-block;
-      margin: 0 1.5rem;
-    }
-
-    .auth-links{
-      display: none;
-      position: absolute;
-      top: 100%;
-      margin: 0 1.5rem;
-    }
-    
-    .show {
-      display: block;
-    }
-
-    .auth-links.show {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-      width: 7rem;
-      background-color: #E5D5B9;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-
-
-    .auth-links a {
-      padding: 0.5rem;
-      text-decoration: none;
-    }
-
-    .dropdown-auth-links {
-      position: relative;
-      cursor: pointer;
-    }
 
   
   }

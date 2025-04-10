@@ -1,6 +1,5 @@
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
-const logoutButton = document.querySelector('.logout-button');
 
 if (loginForm) {
   loginForm.addEventListener('submit', async (e) => {
@@ -64,9 +63,5 @@ if (signupForm) {
 };
 
 
-if (logoutButton) {
-  logoutButton.addEventListener('click', () => {
-    localStorage.removeItem('token');
-    window.location.href = '/frontend/views/home/index.html';
-  })
-};
+
+

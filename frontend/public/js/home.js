@@ -1,10 +1,8 @@
 const token = localStorage.getItem('token');
 const currentPage = window.location.pathname;
+const logoutButton = document.querySelector('.logout-button');
+const user_emoji = document.querySelector('i');
 
-if (token && !currentPage.endsWith('login_home.html')) {
-  window.location.href = '/frontend/views/home/login_home.html';
-}
-  
 async function fetchUserProfile(token) {
   try {
     const response = await fetch('http://localhost:3001/api/auth/', {
@@ -27,3 +25,25 @@ async function fetchUserProfile(token) {
   }
 }
 
+// Navigation
+
+if (token) {
+  if (currentPage.endsWith('login.html') || currentPage.endsWith('signup.html')){
+    window.location.href = '/frontend/views/user/login_home.html';
+  }
+  
+  user_emoji.addEventListener('click', (event) => {
+    window.location.href = '/frontend/views/user/profile.html'
+  })
+
+  if (logoutButton) {
+    logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    window.location.href = '/frontend/views/home/index.html';
+  })
+}
+} else {
+  user_emoji.addEventListener('click', (event) => {
+    window.location.href = '/frontend/views/auth/login.html'
+  })
+}
