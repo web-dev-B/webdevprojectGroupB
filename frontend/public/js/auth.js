@@ -20,7 +20,7 @@ if (loginForm) {
 
       if (response.ok) {
         localStorage.setItem('token', data.token);
-        window.location.href = '/frontend/views/home/index.html';
+        window.location.href = '/frontend/views/user/login_home.html';
       } else {
         alert(data.msg);
       }
@@ -51,7 +51,7 @@ if (signupForm) {
 
       if (response.ok) {
         localStorage.setItem('token', data.token);
-        window.location.href = '/frontend/views/home/index.html';
+        window.location.href = '/frontend/views/user/login_home.html';
       } else {
         alert(data.msg);
       }
