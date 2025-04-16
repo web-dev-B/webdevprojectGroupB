@@ -8,7 +8,7 @@ const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
 
     const userExists = await pool.query(
-      'SELECT * FROM users WHERE email = $1',
+      'SELECT * FROM account WHERE email = $1',
       [email]
     );
 
@@ -20,13 +20,13 @@ const registerUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = await pool.query(
-      'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, password',
+      'INSERT INTO account (username, email, password) VALUES ($1, $2, $3) RETURNING username, email, password',
       [username, email, hashedPassword]
     );
 
     const payload = {
       user: {
-        id: newUser.rows[0].id,
+        account_id: newUser.rows[0].account_id,
       },
     };
 
@@ -50,7 +50,7 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await pool.query(
-      'SELECT * FROM users WHERE email = $1',
+      'SELECT * FROM account WHERE email = $1',
       [email]
     );
 
@@ -66,7 +66,7 @@ const loginUser = async (req, res) => {
 
     const payload = {
       user: {
-        id: user.rows[0].id,
+        account_id: user.rows[0].account_id,
       },
     };
 
@@ -88,8 +88,8 @@ const loginUser = async (req, res) => {
 const getHomePage = async (req, res) => {
   try {
     const user = await pool.query(
-      'SELECT id, username, email FROM users WHERE id = $1',
-      [req.user.id]
+      'SELECT account_id, username, email FROM account WHERE account_id = $1',
+      [req.user.account_id]
     );
 
     res.json(user.rows[0]);
