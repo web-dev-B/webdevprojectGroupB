@@ -1,7 +1,4 @@
 const token = localStorage.getItem('token');
-const currentPage = window.location.pathname;
-const logoutButton = document.querySelector('.logout-button');
-const user_emoji = document.querySelector('i');
 
 async function fetchUserProfile(token) {
   try {
@@ -23,30 +20,6 @@ async function fetchUserProfile(token) {
   } catch (err) {
     alert('Failed to fetch user profile');
   }
-}
-
-// Navigation
-
-if (token) { 
-  user_emoji.addEventListener('click', (event) => {
-    window.location.href = '/frontend/views/user/profile.html'
-  })
-
-  if (logoutButton) {
-    logoutButton.addEventListener('click', () => {
-    localStorage.removeItem('token');
-    window.location.href = '/frontend/views/home/index.html';
-    })
-  }
-
-  if (currentPage.endsWith('profile.html')) {
-    document.querySelector('i').style.display = 'none'
-  }
-  
-} else {
-  user_emoji.addEventListener('click', (event) => {
-    window.location.href = '/frontend/views/auth/login.html'
-  })
 }
 
   
