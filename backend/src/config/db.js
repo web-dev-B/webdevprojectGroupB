@@ -7,6 +7,9 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   port: 5432,
+  ssl: {
+    rejectUnauthorized: false 
+  }
 });
 
 const connectDB = async () => {
@@ -18,4 +21,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports = { pool, connectDB };
+module.exports = { pool, connectDB };
