@@ -27,6 +27,7 @@ const registerUser = async (req, res) => {
     const payload = {
       user: {
         account_id: newUser.rows[0].account_id,
+        username: user.rows[0].username,
       },
     };
 
@@ -67,6 +68,7 @@ const loginUser = async (req, res) => {
     const payload = {
       user: {
         account_id: user.rows[0].account_id,
+        username: user.rows[0].username,
       },
     };
 

@@ -52,10 +52,16 @@
         <div class="row">
             <div class="col-md-6">
                 <h3 class="section-title">BASIC INFO</h3>
-                <form>
-                    <div class="mb-3">
-                        <label for="recipeName" class="form-label">Recipe name</label>
-                        <input type="text" class="form-control" id="recipeName" placeholder="Name...">
+                <form id="create">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <label for="recipeName" class="form-label">Recipe name</label>
+                            <input type="text" class="form-control" id="recipeName" placeholder="Name...">
+                        </div>   
+                        <div class="col">
+                            <label for="type" class="form-label">Recipe for</label>
+                            <input type="text" class="form-control" id="type" placeholder="Type...">
+                        </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
@@ -98,54 +104,9 @@
             <button type="submit" class="btn btn-custom px-4">Create</button>
         </div>
     </div>
-
+    <script src="/frontend/public/js/home.js"></script>    
+    <script src="/frontend/public/js/navigate.js"></script>
+    <script src="/frontend/public/js/create.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Add ingredients -->
-    <script>
-        const availableIngredients = ["Onion", "Butter", "Garlic", "Tomato", "Salt", "Pepper", "Cheese", "Chicken"];
-        const ingredientInput = document.getElementById("ingredientInput");
-        const suggestions = document.getElementById("suggestions");
-        const selectedIngredients = document.getElementById("selectedIngredients");
-        const addedIngredients = new Set();
-
-        ingredientInput.addEventListener("input", () => {
-            const query = ingredientInput.value.toLowerCase();
-            suggestions.innerHTML = "";
-            if (query) {
-                const matches = availableIngredients.filter(ingredient => 
-                    ingredient.toLowerCase().includes(query) && !addedIngredients.has(ingredient)
-                );
-                matches.forEach(match => {
-                    const suggestionItem = document.createElement("button");
-                    suggestionItem.className = "list-group-item list-group-item-action";
-                    suggestionItem.textContent = match;
-                    suggestionItem.addEventListener("click", () => {
-                        addIngredientTag(match);
-                        ingredientInput.value = "";
-                        suggestions.innerHTML = "";
-                    });
-                    suggestions.appendChild(suggestionItem);
-                });
-            }
-        });
-
-        function addIngredientTag(ingredient) {
-            if (!addedIngredients.has(ingredient)) {
-                addedIngredients.add(ingredient);
-                const tag = document.createElement("span");
-                tag.className = "badge bg-secondary me-2";
-                tag.textContent = ingredient;
-                const removeBtn = document.createElement("button");
-                removeBtn.className = "btn-close btn-close-white ms-2";
-                removeBtn.style.fontSize = "0.6rem";
-                removeBtn.addEventListener("click", () => {
-                    tag.remove();
-                    addedIngredients.delete(ingredient);
-                });
-                tag.appendChild(removeBtn);
-                selectedIngredients.appendChild(tag);
-            }
-        }
-    </script>
 </body>
 </html>

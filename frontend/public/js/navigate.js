@@ -1,7 +1,6 @@
 const currentPage = window.location.pathname;
 const logoutButton = document.querySelector('.logout-button');
 const user_emoji = document.querySelector('i');
-
 if (token) {
 
     user_emoji.addEventListener('click', (event) => {
