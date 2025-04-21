@@ -11,11 +11,13 @@ create.addEventListener('submit', async (e) => {
     const image = document.getElementById('imageUpload').value;
     const ingredients = Array.from(addedIngredients);
     const instruction = document.getElementById('instructions').value;
+    
     try {
-        const response = await fetch('http://localhost:3001/api/create', {
+        const response = await fetch('http://localhost:3001/api/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem('token'),
             },
             body: JSON.stringify({recipeName, type, serves, prep, cook, image, ingredients, instruction}),
         })
@@ -27,13 +29,15 @@ create.addEventListener('submit', async (e) => {
             inputs.forEach(input => {
                 input.value = '';
             })
+            const username = data.username;
             const newPost = {recipeName, type, image, username}
             localStorage.setItem('newPost', JSON.stringify(newPost))
-            window.location.href = 'frontend/views/user/posts.html';
+            window.location.href = 'posts.html';
         } else {
             alert(data.msg);
         }
     } catch (err) {
+        console.error('Create post failed:', err.message);
         alert('Cannot create post');
     }
 })

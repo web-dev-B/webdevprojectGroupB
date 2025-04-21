@@ -1,0 +1,26 @@
+### Login
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "dum1@gmail.com",
+  "password": "dum1"
+}
+
+
+### Create a new post
+POST http://localhost:3001/api/create
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImFjY291bnRfaWQiOjEsInVzZXJuYW1lIjoiZHVtMSJ9LCJpYXQiOjE3NDUyMjY5MjIsImV4cCI6MTc0NTIzMDUyMn0.s_t59OogZTZxA76dQI4kGc61PXV4BP1_Ftdc9zZtw_8
+
+{
+  "name": "Apple pie",
+  "serves": 5,
+  "prep": "3 mins",
+  "cook": "45 mins",
+  "image": "image-url.jpg",
+  "ingredients": ["Sugar", "Apple"],
+  "instruction": "Boil and stir",
+  "type": "Dessert",
+  "account_id": 1
+}

@@ -4,17 +4,18 @@ require('dotenv').config();
 
 const createPost = async (req, res) => {
     try {
-      const { name, type, serves, prep, cook, image, ingredients, instruction } = req.body;
+      const { recipeName, type, serves, prep, cook, image, ingredients, instruction } = req.body;
   
       const user = req.user; 
   
       const newPost = await pool.query(
-        'INSERT INTO post (name, type, serves, prep, cook, image, ingredients, instruction, account_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-        [name, type, serves, prep, cook, image, ingredients, instruction, user.account_id]
+        'INSERT INTO post (recipeName, type, serves, prep, cook, image, ingredients, instruction, account_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
+        [recipeName, type, serves, prep, cook, image, ingredients, instruction, user.account_id]
       );
   
       res.status(201).json({
         msg: 'Post created successfully!',
+        username: req.user.username,
         post: newPost.rows[0],
       });
     } catch (err) {
