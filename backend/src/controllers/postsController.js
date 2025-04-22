@@ -6,7 +6,7 @@ const multer = require('multer');
 // Configure file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadDir = path.join(__dirname, '../frontend/assets', 'uploads');
+    const uploadDir = path.join(__dirname, '../../../frontend/assets', 'uploads');
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
