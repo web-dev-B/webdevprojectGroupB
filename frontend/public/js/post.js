@@ -1,22 +1,34 @@
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const postContainer = document.getElementById('postContainer');
-    const newPost = JSON.parse(localStorage.getItem('newPost'));
-
-    if (newPost) {
+  
+    try {
+      const response = await fetch('/api/posts', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+  
+      const posts = await response.json();
+  
+      posts.forEach(recipe => {
         const postCard = document.createElement('div');
         postCard.className = 'post-card';
-
+  
         postCard.innerHTML = `
-            <div class="top-right-box">${newPost.type}</div>
-            <img src="${newPost.image}" alt="${newPost.image}" />
-            <div class="recipe-info">
-                <h3>${newPost.recipeName}</h3>
-                <p>By ${newPost.username}</p>
-            </div>
+          <div class="top-right-box">${posts.type}</div>
+          <img src="${posts.image}" alt="${posts.name}" />
+          <div class="recipe-info">
+              <h3>${posts.name}</h3>
+              <p>By ${posts.username}</p>
+          </div>
         `;
-
+  
         postContainer.appendChild(postCard);
-
-        localStorage.removeItem('newPost');
+      });
+  
+    } catch (err) {
+      console.error('Failed to fetch recipes:', err);
     }
-});
+  });
+  
+
