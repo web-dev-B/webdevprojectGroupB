@@ -138,19 +138,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
     }
+
+    // Get username
+    function getUsernameFromToken(token) {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        return payload.user?.username || null;
+      } catch (error) {
+        console.error('Failed to decode token', error);
+        return null;
+      }
+    }
     
     // Handle form submission
     recipeForm.addEventListener('submit', async function(e) {
       e.preventDefault();
+
+      // Get username
+      const username = getUsernameFromToken(localStorage.getItem('token'));
       
       // Create FormData object for file upload
       const formData = new FormData();
       formData.append('name', document.getElementById('recipeName').value);
+      formData.append('type', document.getElementById('type').value);
       formData.append('serves', document.getElementById('serves').value);
       formData.append('prep_time', document.getElementById('prepTime').value);
       formData.append('cook_time', document.getElementById('cookTime').value);
       formData.append('instructions', document.getElementById('instructions').value);
-      
+
+      // Send username to server
+      if (username) {
+        formData.append('username', username);
+      }
+
       // Add ingredients as JSON string
       formData.append('ingredients', JSON.stringify(ingredients));
       
@@ -165,17 +185,22 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         const response = await fetch('/api/posts', {
           method: 'POST',
-          body: formData
+          body: formData,
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
         });
         
         if (response.ok) {
           const result = await response.json();
           alert('Recipe created successfully!');
+          
           // Reset form
           recipeForm.reset();
           ingredients = [];
           updateIngredientTags();
           updateIngredientsList();
+
         } else {
           alert('Failed to create recipe');
         }

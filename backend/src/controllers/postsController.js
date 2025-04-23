@@ -1,4 +1,4 @@
-const pool = require('../config/database');
+const { pool } = require('../config/db');
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
@@ -25,7 +25,7 @@ const createPost = async (req, res) => {
   try {
     await client.query('BEGIN');
     
-    const { name, serves, prep_time, cook_time, instructions } = req.body;
+    const { name, type, serves, prep_time, cook_time, instructions } = req.body;
     const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
     
     let ingredients = [];
@@ -38,8 +38,8 @@ const createPost = async (req, res) => {
     }
     
     const recipeResult = await client.query(
-      'INSERT INTO posts (name, serves, prep_time, cook_time, instructions, image_path, ingredients) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id_post',
-      [name, serves, prep_time, cook_time, instructions, imagePath, ingredients]
+      'INSERT INTO posts (name, type, serves, prep_time, cook_time, instructions, image_path, ingredients) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id_post',
+      [name, type, serves, prep_time, cook_time, instructions, imagePath, ingredients]
     );
     
     const postId = recipeResult.rows[0].id_post;
@@ -91,7 +91,7 @@ const createPost = async (req, res) => {
 
 const getAllPosts = async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM posts ORDER BY created_at DESC');
+    const result = await pool.query('SELECT * FROM posts'); //ORDER BY created_at DESC
     res.json(result.rows);
   } catch (error) {
     console.error('Error fetching posts:', error);

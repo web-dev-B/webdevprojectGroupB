@@ -7,7 +7,7 @@
   
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../public/css/pages/createRecipe.css" rel="stylesheet">
+  <link href="/css/pages/createRecipe.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -52,11 +52,18 @@
         <div class="form-column">
           <h2>BASIC INFO</h2>
           
-          <div class="form-group">
-            <label for="recipeName">Recipe name</label>
-            <input type="text" id="recipeName" placeholder="Name...">
+          <div class="input-row">
+            <div class="form-group">
+              <label for="recipeName">Recipe name</label>
+              <input type="text" id="recipeName" placeholder="Name...">
+            </div>
+  
+            <div class="form-group">
+              <label for="recipeName">Type</label>
+              <input type="text" id="type" placeholder="Type...">
+            </div>
           </div>
-          
+
           <div class="input-row">
             <div class="form-group">
               <label for="serves">SERVES</label>
@@ -107,6 +114,6 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../public/js/createRecipe.js"></script>
+  <script src="/js/createRecipe.js"></script>
 </body>
 </html>
