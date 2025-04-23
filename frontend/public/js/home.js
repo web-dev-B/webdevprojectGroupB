@@ -15,7 +15,7 @@ async function fetchUserProfile(token) {
     } else {
       localStorage.removeItem('token');
       alert('Session expired. Please login again.');
-      window.location.href = '/frontend/views/auth/login.html';
+      window.location.href = '/auth/login.html';
     }
   } catch (err) {
     alert('Failed to fetch user profile');
