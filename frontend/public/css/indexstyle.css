@@ -182,6 +182,12 @@
     font-size: 0.8rem;
   }
 
+  .recipe-card-placeholder img {
+    width: 100%; 
+    height: 250px;
+    object-fit: cover;
+  }
+
   .img-container {
     width: 25rem;
     height: 17rem;
