@@ -123,10 +123,9 @@
     margin-bottom: 3rem;
   }
 
-  .recipe-of-day-placeholder {
+  .recipe-of-day {
     background-color: #fff;
     border-radius: 8px;
-    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,6 +180,31 @@
     padding: 0.3rem 0.8rem;
     border-radius: 4px;
     font-size: 0.8rem;
+  }
+
+  .recipe-card-placeholder img {
+    width: 100%; 
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .img-container {
+    width: 25rem;
+    height: 17rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5%;
+    z-index: -2;
+  }
+
+  .img-cropped {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
   }
 
   @media (max-width: 1024px) {
