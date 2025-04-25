@@ -163,6 +163,7 @@
     flex-direction: column;
     background: #fff;
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .post-card img {
@@ -189,7 +190,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(255, 255, 255, 0.8);
+    background: #E5D5B9;
     padding: 4px 8px;
     border-radius: 5px;
     font-size: 0.8rem;

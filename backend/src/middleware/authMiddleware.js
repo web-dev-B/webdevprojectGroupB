@@ -4,7 +4,7 @@ require('dotenv').config();
 module.exports = (req, res, next) => {
   console.log('[AUTH MIDDLEWARE] Running...');
   
-  const token = req.header('x-auth-token');
+  const token = req.header('x-auth-token') || (req.headers['authorization'] && req.headers['authorization'].split(' ')[1]);
   console.log('[AUTH MIDDLEWARE] Token:', token);
 
   if (!token) {

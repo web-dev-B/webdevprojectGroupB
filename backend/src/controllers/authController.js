@@ -27,7 +27,7 @@ const registerUser = async (req, res) => {
     const payload = {
       user: {
         account_id: newUser.rows[0].account_id,
-        username: user.rows[0].username,
+        username: newUser.rows[0].username,
       },
     };
 
@@ -94,6 +94,10 @@ const getHomePage = async (req, res) => {
       [req.user.account_id]
     );
 
+    if (user.rows.length === 0) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+
     res.json(user.rows[0]);
   } catch (err) {
     console.error(err.message);
@@ -101,8 +105,28 @@ const getHomePage = async (req, res) => {
   }
 };
 
+const getUserInfo = async (req, res) => {
+  try {
+    const user = await pool.query(
+      'SELECT account_id, username, email FROM account WHERE account_id = $1',
+      [req.user.account_id]
+    );
+
+    if (user.rows.length === 0) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+
+    res.json(user.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+};
+
+
 module.exports = {
   registerUser,
   loginUser,
   getHomePage,
+  getUserInfo
 };

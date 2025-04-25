@@ -2,7 +2,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     const postContainer = document.getElementById('postContainer');
   
     try {
-      const response = await fetch('/api/posts', {
+      const userRes = await fetch('/api/auth/me', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      const user = await userRes.json();
+
+      const response = await fetch(`/api/posts/user/${user.account_id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -15,11 +22,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         postCard.className = 'post-card';
   
         postCard.innerHTML = `
-          <div class="top-right-box">${posts.type}</div>
-          <img src="${posts.image}" alt="${posts.name}" />
+          <div class="top-right-box">${recipe.type}</div>
+          <img src="${recipe.image_path}" alt="${recipe.name}" />
           <div class="recipe-info">
-              <h3>${posts.name}</h3>
-              <p>By ${posts.username}</p>
+              <h3>${recipe.name}</h3>
+              <p>By ${user.username}</p>
           </div>
         `;
   
@@ -29,6 +36,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (err) {
       console.error('Failed to fetch recipes:', err);
     }
+ 
   });
+
+  
   
 
