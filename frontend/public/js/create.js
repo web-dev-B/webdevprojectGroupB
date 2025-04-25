@@ -13,7 +13,7 @@ create.addEventListener('submit', async (e) => {
     const instruction = document.getElementById('instructions').value;
     
     try {
-        const response = await fetch('http://localhost:3001/api/', {
+        const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

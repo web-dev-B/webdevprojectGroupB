@@ -2,7 +2,7 @@ const token = localStorage.getItem('token');
 
 async function fetchUserProfile(token) {
   try {
-    const response = await fetch('http://localhost:3001/api/auth/', {
+    const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/auth/', {
       headers: {
         'x-auth-token': token,
       },

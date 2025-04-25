@@ -8,7 +8,7 @@ if (loginForm) {
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/login', {
+      const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ if (signupForm) {
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/signup', {
+      const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
