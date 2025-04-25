@@ -24,9 +24,11 @@ const createPost = async (req, res) => {
   
   try {
     await client.query('BEGIN');
+
+    const accountId = req.user.account_id;
     
     const { name, type, serves, prep_time, cook_time, instructions } = req.body;
-    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+    const imagePath = req.file ? `../../assets/uploads/${req.file.filename}` : null;
     
     let ingredients = [];
     if (req.body.ingredients) {
@@ -38,8 +40,8 @@ const createPost = async (req, res) => {
     }
     
     const recipeResult = await client.query(
-      'INSERT INTO posts (name, type, serves, prep_time, cook_time, instructions, image_path, ingredients) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id_post',
-      [name, type, serves, prep_time, cook_time, instructions, imagePath, ingredients]
+      'INSERT INTO posts (name, type, serves, prep_time, cook_time, instructions, image_path, ingredients, account_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id_post',
+      [name, type, serves, prep_time, cook_time, instructions, imagePath, ingredients, accountId]
     );
     
     const postId = recipeResult.rows[0].id_post;
@@ -102,21 +104,27 @@ const getAllPosts = async (req, res) => {
 const getPostById = async (req, res) => {
   const { id } = req.params;
   
+  console.log(`Fetching posts for user ID: ${id}`); // Debugging: log user ID
+
   try {
-    const recipeResult = await pool.query('SELECT * FROM posts WHERE id_post = $1', [id]);
+    // Ensure the field name matches your table's schema
+    const recipeResult = await pool.query('SELECT * FROM posts WHERE account_id = $1', [id]);
     
     if (recipeResult.rows.length === 0) {
-      return res.status(404).json({ error: 'Post not found' });
+      console.log('No posts found for user ID:', id); // Debugging: log when no posts are found
+      return res.status(404).json({ error: 'No posts found for this user' });
     }
     
-    const recipe = recipeResult.rows[0];
+    const recipe = recipeResult.rows;
+    console.log('Posts fetched:', recipe); // Debugging: log the fetched posts
     
     res.json(recipe);
   } catch (error) {
-    console.error('Error fetching post:', error);
+    console.error('Error fetching posts:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
 
 module.exports = {
   upload,
