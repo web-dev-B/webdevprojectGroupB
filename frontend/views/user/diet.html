@@ -7,6 +7,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/logoRecipe.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/indexstyle.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -46,46 +47,127 @@
   </div>
 </nav>
 
-<section class="section most-popular">
-  <h2>FOR YOUR DIET</h2>
-  <div class="search-categories">
-    <div class="category">these will become category filters</div>
-  </div>
-</section>
+<main> 
+  <div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="mb-5 fw-bold">FOR YOUR DIET</h1>
+            
+            <div class="mb-4">
+                <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+                    <button class="btn btn-light rounded-pill px-3">Bread</button>
+                    <button class="btn btn-light rounded-pill px-3">Salmon</button>
+                    <button class="btn btn-light rounded-pill px-3">Cocktails</button>
+                    <button class="btn btn-light rounded-pill px-3">Breakfast</button>
+                    <button class="btn btn-light rounded-pill px-3">Rice</button>
+                </div>
+                
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <button class="btn btn-light rounded-pill px-3">Snacks</button>
+                    <button class="btn btn-light rounded-pill px-3">Appetizers</button>
+                    <button class="btn btn-light rounded-pill px-3">Casseroles</button>
+                    <button class="btn btn-light rounded-pill px-3">Sauces</button>
+                    <button class="btn btn-light rounded-pill px-3">Eggs</button>
+                </div>
+            </div>
+            
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-white border-end-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </span>
+                <input type="text" class="form-control border-start-0" placeholder="Tasty recipes...">
+                <button class="btn" style="background-color: #e6d7b7;">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<section class="section recipe-of-day-section">
-  <h2>RECIPE OF THE DAY</h2>
-  <div class="recipe-of-day-placeholder">
-    Recipe of the Day will be added here
-  </div>
-</section>
-
-<section class="section explore-more">
-  <h2>EXPLORE MORE</h2>
-  <div class="recipe-grid">
-    <!-- recipe placeholders -->
-    <div class="recipe-card-placeholder">
-      <div class="recipe-card-placeholder-category">Dessert</div>
-      <div class="recipe-card-placeholder-content">
-        <h3>Recipe 1 will be added here</h3>
+  <section class="section recipe-of-day-section">
+    <h2>RECIPE OF THE DAY</h2>
+    <div class="recipe-of-day">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="../../assets/uploads/Skillet-Garlic-Butter-Chicken-Broccoli-3 (1).jpg" alt="Garlic Chicken" class="img-fluid rounded" style="  width: 70rem; height: 25rem; object-fit: cover;">
+        </div>
+        <div class="col-md-6" style="padding-left: 3rem;">
+          <h2 class="fw-bold">GARLIC CHICKEN</h2>
+          <p class="text-muted">By Freesmith Anderson</p>
+          <div class="mb-3">
+            <span class="badge bg-light text-dark">Chicken</span>
+            <span class="badge bg-light text-dark">Garlic</span>
+            <span class="badge bg-light text-dark">Broccoli</span>
+            <span class="badge bg-light text-dark">Rice</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-3 pt-3">
+              <div class="d-flex justify-content-between w-50">
+              <div>
+                <p class="mb-0"><strong>SERVES</strong></p>
+                <p class="mb-0"><strong>PREP</strong></p>
+                <p class="mb-0"><strong>COOK</strong></p>
+              </div>
+              <div>
+                <p class="mb-0">4</p>
+                <p class="mb-0">20 minutes</p>
+                <p class="mb-0">50 minutes</p>
+              </div>
+              </div>
+            <div class="d-flex align-items-center" style="padding-right: 2rem;">
+              <i class="bi bi-heart me-2"></i> 30
+              <i class="bi bi-chat ms-4 me-2"></i> 17
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-    <div class="recipe-card-placeholder">
-      <div class="recipe-card-placeholder-category">Appetizer</div>
-      <div class="recipe-card-placeholder-content">
-        <h3>Recipe 2 will be added here</h3>
+  </section>
+
+  <section class="section explore-more">
+    <h2>EXPLORE MORE</h2>
+    <div class="recipe-grid">
+      <!-- recipe placeholders -->
+      <div class="recipe-card-placeholder">
+        <div class="recipe-card-placeholder-category">Dessert</div>
+        <div class="recipe-card-placeholder-content">
+          <img src="../../assets/uploads/ginger-syrup-2.webp" alt="Ginger Syrup" class="img-fluid" >
+          <h3 class="mt-2">GINGER SYRUP</h3>
+          <p class="text-muted">By John Doe</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <i class="bi bi-heart"></i>
+            <i class="bi bi-bookmark"></i>
+          </div>
+        </div>
       </div>
-    </div>
     
-    <div class="recipe-card-placeholder">
-      <div class="recipe-card-placeholder-category">Sauce</div>
-      <div class="recipe-card-placeholder-content">
-        <h3>Recipe 3 will be added here</h3>
+      <div class="recipe-card-placeholder">
+        <div class="recipe-card-placeholder-category">Appetizer</div>
+        <div class="recipe-card-placeholder-content">
+          <img src="../../assets/uploads/Apple-Pie_8.webp" alt="Apple Pie" class="img-fluid" >
+          <h3 class="mt-2">Apple Pie</h3>
+          <p class="text-muted">By John Doe</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <i class="bi bi-heart"></i>
+            <i class="bi bi-bookmark"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="recipe-card-placeholder">
+        <div class="recipe-card-placeholder-category">Sauce</div>
+        <div class="recipe-card-placeholder-content">
+          <img src="../../assets/uploads/Honey-mustard-sauce_6.webp" alt="Honey Mustard" class="img-fluid" >
+          <h3 class="mt-2">HONEY MUSTARD</h3>
+          <p class="text-muted">By John Doe</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <i class="bi bi-heart"></i>
+            <i class="bi bi-bookmark"></i>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
   
 
